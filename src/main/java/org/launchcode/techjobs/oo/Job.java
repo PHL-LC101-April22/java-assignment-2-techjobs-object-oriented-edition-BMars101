@@ -86,9 +86,30 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
-}
+   // @Override
+//    public String toString(){
+//        return "\n" +
+//                "ID: " + this.getId() + "\n" +
+//                "Name: " + this.getName() + "\n" +
+//                "Employer: " + this.getEmployer() + "\n" +
+//                "Location: " + this.getLocation() + "\n" +
+//                "Position Type: " + this.getPositionType() + "\n" +
+//                "Core Competency: " + this.getCoreCompetency() + "\n";
+//    }
+
+    @Override
+    public String toString() {
+        return "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+            "Location: " + location + "\n" +
+            "Position Type: " + positionType + "\n" +
+            "Core Competency: " + coreCompetency +
+            "\n";
+        }
+    }
+
+
+
