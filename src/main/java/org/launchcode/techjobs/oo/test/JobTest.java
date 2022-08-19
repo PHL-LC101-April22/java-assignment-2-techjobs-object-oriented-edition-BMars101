@@ -26,8 +26,18 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields(){
         Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals(job3.getName(), "Product tester" );
         assertTrue(job3 instanceof Job);
+        assertTrue(job3.getEmployer() instanceof Employer);
+        assertTrue(job3.getLocation() instanceof Location);
+        assertTrue(job3.getPositionType() instanceof PositionType);
+        assertTrue(job3.getCoreCompetency() instanceof CoreCompetency);
+        assertEquals(job3.getName(), "Product tester");
+        assertEquals(job3.getEmployer().getValue(), "ACME");
+        assertEquals(job3.getLocation().getValue(), "Desert");
+        assertEquals(job3.getPositionType().getValue(),"Quality control");
+        assertEquals(job3.getCoreCompetency().getValue(), "Persistence");
+
+
     }
 
     @Test
@@ -40,7 +50,10 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
         Job test_job = new Job("Full stack developer", new Employer("International Co."), new Location("Remote"), new PositionType("Entry level"), new CoreCompetency("Problem solving"));
-        assertEquals(test_job.toString().startsWith("\n"), test_job.toString().endsWith("\n"));
+        char firstChar = test_job.toString().charAt(0);
+        char lastChar = test_job.toString().charAt(test_job.toString().length() - 1);
+        assertEquals(firstChar, '\n');
+        assertEquals(lastChar, '\n');
     }
 
     @Test
@@ -60,7 +73,12 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField(){
         Job test_job = new Job("Full stack developer", new Employer("International Co."), new Location("Remote"), new PositionType(""), new CoreCompetency("Problem solving"));
-        assertTrue(test_job.toString().contains("Data not available"));
+        assertEquals(test_job.toString(), "\n"+ "ID: 1\n" +
+                "Name: Full stack developer\n" +
+                "Employer: International Co.\n" +
+                "Location: Remote\n" +
+                "Position Type: Data not available\n" +
+                "Core Competency: Problem solving"+ "\n");
     }
 
 

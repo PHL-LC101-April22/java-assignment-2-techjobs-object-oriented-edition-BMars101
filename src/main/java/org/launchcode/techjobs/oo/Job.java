@@ -13,7 +13,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     public Job(){
         this.id = nextId;
         nextId++;
@@ -27,8 +26,6 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
 
     public String getName() {
         return name;
@@ -87,16 +84,6 @@ public class Job {
         return Objects.hash(id);
     }
 
-   // @Override
-//    public String toString(){
-//        return "\n" +
-//                "ID: " + this.getId() + "\n" +
-//                "Name: " + this.getName() + "\n" +
-//                "Employer: " + this.getEmployer() + "\n" +
-//                "Location: " + this.getLocation() + "\n" +
-//                "Position Type: " + this.getPositionType() + "\n" +
-//                "Core Competency: " + this.getCoreCompetency() + "\n";
-//    }
 
     @Override
     public String toString() {
@@ -104,10 +91,10 @@ public class Job {
                 "ID: " + id + "\n" +
                 "Name: " + name + "\n" +
                 "Employer: " + employer + "\n" +
-            "Location: " + location + "\n" +
-            "Position Type: " + positionType + "\n" +
-            "Core Competency: " + coreCompetency +
-            "\n";
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency +
+                "\n";
         }
     }
 
